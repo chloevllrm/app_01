@@ -1,1 +1,132 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Chloe Demo Store</title><style>body{font-family:Arial,sans-serif;margin:0;background:#f4f6f9}header{background:#0078d4;color:#fff;padding:20px;text-align:center}.container{max-width:1100px;margin:auto;padding:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}button{background:#0078d4;color:#fff;border:none;padding:10px 15px;border-radius:6px;cursor:pointer}.cart{position:fixed;top:10px;right:10px;background:#fff;padding:10px 15px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15)}</style></head><body><div class="cart">Cart: <span id="cart">0</span></div><header><h1>Chloe Demo Store</h1><p>SolarWinds RUM Test Website</p></header><div class="container"><input id="search" placeholder="Search products..." style="width:100%;padding:10px;margin-bottom:20px"><div class="grid" id="products"></div></div><script>const items=['Laptop','Monitor','Keyboard','Mouse','Headset','Webcam'];let cart=0;function render(filter=''){document.getElementById('products').innerHTML=items.filter(x=>x.toLowerCase().includes(filter.toLowerCase())).map(p=>`<div class="card"><h3>${p}</h3><p>Demo product page interaction.</p><button onclick="addCart()">Add to Cart</button></div>`).join('')}function addCart(){cart++;document.getElementById('cart').innerText=cart;}document.getElementById('search').addEventListener('input',e=>render(e.target.value));render();</script><!-- Paste SolarWinds RUM Script Here before </body> --></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chloe Demo Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #0078d4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+        }
+
+        button {
+            background: #0078d4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cart">
+        Cart: <span id="cart">0</span>
+    </div>
+
+    <header>
+        <h1>Chloe Demo Store</h1>
+        <p>SolarWinds RUM Test Website</p>
+    </header>
+
+    <div class="container">
+        <input
+            id="search"
+            placeholder="Search products..."
+            style="width:100%;padding:10px;margin-bottom:20px"
+        >
+
+        <div class="grid" id="products"></div>
+    </div>
+
+    <script>
+        const items = [
+            'Laptop',
+            'Monitor',
+            'Keyboard',
+            'Mouse',
+            'Headset',
+            'Webcam'
+        ];
+
+        let cart = 0;
+
+        function render(filter = '') {
+            document.getElementById('products').innerHTML =
+                items
+                    .filter(x =>
+                        x.toLowerCase().includes(filter.toLowerCase())
+                    )
+                    .map(p => `
+                        <div class="card">
+                            <h3>${p}</h3>
+                            <p>Demo product page interaction.</p>
+                            <button onclick="addCart()">Add to Cart</button>
+                        </div>
+                    `)
+                    .join('');
+        }
+
+        function addCart() {
+            cart++;
+            document.getElementById('cart').innerText = cart;
+        }
+
+        document
+            .getElementById('search')
+            .addEventListener('input', e => render(e.target.value));
+
+        render();
+    </script>
+
+    <!-- Paste SolarWinds RUM Script Below -->
+
+    <!--
+    <script>
+        SolarWinds RUM Snippet
+    </script>
+    -->
+
+</body>
+</html>
